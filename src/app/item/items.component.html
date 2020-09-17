@@ -1,0 +1,14 @@
+<ActionBar title="Items 1">
+</ActionBar>
+
+<StackLayout>
+    <TextField (focus)="onFocus()"
+               (blur)="onBlur()"
+               (tap)="onTap()">
+    </TextField>
+    <TextField (focus)="onFocus()"
+               (blur)="onBlur()"
+               (tap)="onTap()">
+    </TextField>
+    <Button nsRouterLink="/items2" (tap)="onTap()" text="To Items 2"></Button>
+</StackLayout>
