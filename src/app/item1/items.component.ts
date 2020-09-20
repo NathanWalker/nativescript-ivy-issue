@@ -1,16 +1,26 @@
-import { Component } from "@angular/core";
+import { Component, ViewContainerRef } from "@angular/core";
+import { ModalDialogService } from "@nativescript/angular";
+import { ItemsComponent } from "../item/items.component";
 
 @Component({
     selector: "ns-items-1",
-    moduleId: module.id,
     templateUrl: "./items.component.html"
 })
 export class Items1Component {
 
-    constructor() { }
+    constructor(
+      private _modal: ModalDialogService,
+      private _vcRef: ViewContainerRef
+    ) { }
 
     onTap() {
         console.log('tap');
+        this._modal.showModal(ItemsComponent, {
+          viewContainerRef: this._vcRef,
+          fullscreen: true
+        }).then(res => {
+
+        });
     }
 
     onFocus() {

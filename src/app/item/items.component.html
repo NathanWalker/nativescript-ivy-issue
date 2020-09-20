@@ -2,13 +2,17 @@
 </ActionBar>
 
 <StackLayout>
-    <TextField (focus)="onFocus()"
+  <Button text="close" (tap)="onTap()"></Button>
+  
+    <!-- <TextField (focus)="onFocus()"
                (blur)="onBlur()"
                (tap)="onTap()">
-    </TextField>
+    </TextField> -->
     <TextField (focus)="onFocus()"
                (blur)="onBlur()"
-               (tap)="onTap()">
+               (textChange)="change($event)"
+               (loaded)="loaded($event)"
+               (unloaded)="unloaded($event)">
     </TextField>
     <Button nsRouterLink="/items2" (tap)="onTap()" text="To Items 2"></Button>
 </StackLayout>

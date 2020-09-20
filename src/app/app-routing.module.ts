@@ -12,10 +12,10 @@ const routes: Routes = [
     { path: "items2", component: Items1Component }
 ];
 
-export const NRM = NativeScriptRouterModule.forRoot(routes);
+// export const NRM = NativeScriptRouterModule.forRoot(routes);
 
 @NgModule({
-    imports: [NRM],
+    imports: [NativeScriptRouterModule.forRoot(routes)],
     exports: [NativeScriptRouterModule]
 })
 export class AppRoutingModule { }

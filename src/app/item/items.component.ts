@@ -1,21 +1,23 @@
 import {ChangeDetectorRef, Component, OnInit} from "@angular/core";
+import { ModalDialogParams } from "@nativescript/angular";
 
 @Component({
     selector: "ns-items",
-    moduleId: module.id,
     templateUrl: "./items.component.html"
 })
 export class ItemsComponent implements OnInit {
 
-    constructor(private cdr: ChangeDetectorRef) { }
+    constructor(private cdr: ChangeDetectorRef, private _params: ModalDialogParams) { }
 
     ngOnInit() {
-        console.log('rearrach')
-        this.cdr.reattach();
+        // console.log('rearrach')
+        // this.cdr.reattach();
     }
 
     onTap() {
-        console.log('tap');
+        if (this._params) {
+          this._params.closeCallback();
+        }
     }
 
     onFocus() {
@@ -24,5 +26,17 @@ export class ItemsComponent implements OnInit {
 
     onBlur() {
         console.log('blur');
+    }
+
+    change(args) {
+      console.log('change:', args.object.text);
+    }
+
+    loaded(args) {
+      console.log('loaded:', args.object);
+    }
+
+    unloaded(args) {
+      console.log('unloaded:', args.object);
     }
 }
